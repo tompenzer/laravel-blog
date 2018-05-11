@@ -1,10 +1,10 @@
 /node_modules
-/public/storage
-/public/hot
-/public/css
-/public/fonts
-/public/js
-public/media/
+public/
+!public/index.php
+!public/.htaccess
+!public/robots.txt
+!public/favicon.ico
+!public/web.config
 /vendor
 /.idea
 /.vagrant

@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
         MediaLibrary::firstOrCreate([]);
 
         // Users
-        if (User::where('email', 'darthvader@deathstar.ds')->doesntExist()) {
+        if (User::where('email', 'admin@example.com')->doesntExist()) {
             $user = User::create([
-                'name' => 'anakin',
-                'email' => 'darthvader@deathstar.ds',
-                'password' => '4nak1n'
+                'name' => 'admin',
+                'email' => 'admin@example.com',
+                'password' => 'admin'
             ]);
 
             $user->roles()->attach($role_admin->id);

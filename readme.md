@@ -2,6 +2,40 @@
 
 This repo is forked from github.com/guillaumebriday/laravel-blog, to house modifications to suit deployment on the ThePenzone.com blog.
 
+## Installation
+
+Development environment requirements :
+- [Docker](https://www.docker.com)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+Setting up your development environment on your local machine :
+```
+$ git clone git@github.com:tompenzer/penzone.git
+$ cd penzone
+$ cp .env.example .env
+$ docker-compose run --rm --no-deps blog-server composer install
+$ docker-compose run --rm --no-deps blog-server php artisan key:generate
+$ docker run --rm -it -v $(pwd):/app -w /app node yarn install
+$ docker-compose up -d
+```
+## Before starting
+You need to run the migrations with the seeds :
+```
+$ docker-compose run --rm blog-server php artisan migrate --seed
+```
+
+This will create a new user that you can use to sign in :
+```
+Email : admin@example.com
+Password : admin
+```
+
+And then, compile the assets :
+```
+$ docker run --rm -it -v $(pwd):/app -w /app node yarn run dev
+```
+
+
 ReadMe from guillaumebriday/laravel-blog follows:
 
 # Laravel 5.6 blog
