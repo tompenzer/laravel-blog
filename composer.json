@@ -1,7 +1,7 @@
 {
-    "name": "laravel 5.6 blog",
-    "description": "Laravel 5.6 blog.",
-    "keywords": ["framework", "laravel", "blog", "exemple"],
+    "name": "ThePenzone.com blog",
+    "description": "Based on Laravel 5.6 blog by Guillaume Briday.",
+    "keywords": ["penzone", "thepenzone", "blog"],
     "license": "MIT",
     "type": "project",
     "require": {

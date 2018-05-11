@@ -1,7 +1,7 @@
 require('trumbowyg');
 
 $('.trumbowyg-form').trumbowyg({
-  svgPath: '/js/ui/icons.svg'
+  svgPath: '/images/icons.svg'
 });
 
 // Toggle the side navigation
