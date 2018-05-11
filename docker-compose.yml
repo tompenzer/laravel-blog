@@ -56,7 +56,7 @@ services:
   echo-server:
     image: node
     ports:
-      - 8888:8888
+      - '8888:8888'
     working_dir: /application
     volumes:
       - .:/application:cached
