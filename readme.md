@@ -1,3 +1,9 @@
+# ThePenzone.com blog - forked from https://github.com/guillaumebriday/laravel-blog
+
+This repo is forked from github.com/guillaumebriday/laravel-blog, to house modifications to suit deployment on the ThePenzone.com blog.
+
+ReadMe from guillaumebriday/laravel-blog follows:
+
 # Laravel 5.6 blog
 
 [![Build Status](https://travis-ci.org/guillaumebriday/laravel-blog.svg?branch=master)](https://travis-ci.org/guillaumebriday/laravel-blog)
