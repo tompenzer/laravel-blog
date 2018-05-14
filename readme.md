@@ -6,10 +6,13 @@ house modifications to suit deployment on the ThePenzone.com blog.
 ## Installation
 
 Development environment requirements:
-- [Docker](https://www.docker.com)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Git](https://git-scm.com/) - on Mac, you will be prompted to install the CLI
+dev tools including `git` upon attempting to `git clone` in the command below if
+you don't already have it installed.
+- [Docker](https://store.docker.com/search?offering=community&type=edition)
 
-Setting up your development environment on your local machine:
+Clone the repo and start up the development environment using the terminal on
+your local machine:
 ```
 $ git clone git@github.com:tompenzer/penzone.git
 $ cd penzone
@@ -17,7 +20,7 @@ $ ./startup.sh
 ```
 
 ## Note - potential sql error
-If you get a mysql error at the end of the startup process, try connecting to
+If you get a DB PDO error at the end of the startup process, try connecting to
 the docker mysql image server with any SQL client (i.e. Sequel Pro if you're on
 a Mac), with the following credentials:
 ```
@@ -26,6 +29,7 @@ port: 3306
 user: root
 pass: secret
 ```
+
 And then try running the database migrations manually:
 ```
 docker-compose run --rm blog-server php artisan migrate --seed
@@ -33,37 +37,46 @@ docker-compose run --rm blog-server php artisan migrate --seed
 
 This will create the default admin user that you can use to sign in.
 
+
 ## Usage
 
-Use the following credentials to log in, so you can create users and posts:
+The dev env site should be accessible in your web browser at the following URL:
+
+http://localhost:8000
+
+You can use the following credentials to log in, so you can create users and
+posts:
 ```
-Email : admin@example.com
-Password : admin
+Email: admin@example.com
+Password: admin
+```
+
+You can use the admin dashboard section to configure users and content:
+
+http://localhost:8000/admin/dashboard
+
+
+## Cleaning up and stopping the dev environment:
+
+To have docker take down the server container, wipe the built docker images, and
+erase the database cache, ensuring a fresh build next time, run the following
+command from inside the project directory:
+```
+$ ./destroy.sh
 ```
 
 
 ## Building blog server Docker image
 
 An example of building the blog server docker image for this project, with tags
-for a version 1.0.0/latest release.
-
+for a version 1.0.0/latest release:
 ```
 $ cd provisioning
 $ docker build -f Dockerfile -t tompenzer/penzone:1.0.0 -t tompenzer/penzone:latest -t tompenzer/penzone:1 -t tompenzer/penzone:1.0 .
 ```
 
-## Note -- making changes to the database structure
 
-You will need to run the following command in the project directory in order for
-any changes to the database structure to be reflected in the docker container:
-
-```
-$ rm -rf storage/tmp/*
-```
-Answer 'y' if prompted for confirmation.
-
-
-## ReadMe from guillaumebriday/laravel-blog follows:
+## ReadMe from guillaumebriday/laravel-blog including API documentation follows:
 
 # Laravel 5.6 blog
 
