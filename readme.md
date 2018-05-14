@@ -4,11 +4,11 @@ This repo is forked from github.com/guillaumebriday/laravel-blog, to house modif
 
 ## Installation
 
-Development environment requirements :
+Development environment requirements:
 - [Docker](https://www.docker.com)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
-Setting up your development environment on your local machine :
+Setting up your development environment on your local machine:
 ```
 $ git clone git@github.com:tompenzer/penzone.git
 $ cd penzone
@@ -18,13 +18,22 @@ $ docker-compose run --rm --no-deps blog-server php artisan key:generate
 $ docker run --rm -it -v $(pwd):/app -w /app node yarn install
 $ docker-compose up -d
 ```
+
 ## Before starting
-You need to run the migrations with the seeds :
+You need to run the migrations with the seeds:
 ```
 $ docker-compose run --rm blog-server php artisan migrate --seed
 ```
+If you get an error at this point, try first connecting to the docker mysql
+image server with any sql client with the following credentials and try again:
+```
+host: 0.0.0.0
+port: 3306
+user: root
+pass: secret
+```
 
-This will create a new user that you can use to sign in :
+This will create a new user that you can use to sign in:
 ```
 Email : admin@example.com
 Password : admin
@@ -36,7 +45,28 @@ $ docker run --rm -it -v $(pwd):/app -w /app node yarn run dev
 ```
 
 
-ReadMe from guillaumebriday/laravel-blog follows:
+## Building blog server Docker image
+
+An example of building the blog server docker image for this project, with tags
+for a version 1.0.0/latest release.
+
+```
+$ cd provisioning
+$ docker build -f Dockerfile -t tompenzer/penzone:1.0.0 -t tompenzer/penzone:latest -t tompenzer/penzone:1 -t tompenzer/penzone:1.0 .
+```
+
+## Note -- making changes to the database structure
+
+You will need to run the following command in the project directory in order for
+any changes to the database structure to be reflected in the docker container:
+
+```
+$ rm -rf storage/tmp/*
+```
+Answer 'y' if prompted for confirmation.
+
+
+## ReadMe from guillaumebriday/laravel-blog follows:
 
 # Laravel 5.6 blog
 

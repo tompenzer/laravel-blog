@@ -7,7 +7,42 @@ $blue:      hsl(217, 71%,  53%);
 $purple:    hsl(271, 100%, 71%);
 $red:       hsl(348, 100%, 61%);
 
-// Sidebar
-$sidenav-base-width: 250px;
-$sidenav-collapsed-width: 55px;
-$navbar-base-height: 56px;
+$green-grass: rgb(75, 220, 83);
+
+$rem-base: 16;
+
+@function rem-calc($px) {
+  @return ($px / $rem-base) * 1rem;
+}
+
+// -----------------------------------------------------------------------------
+// Spacing
+// -----------------------------------------------------------------------------
+$spacing-xxs: rem-calc(4);
+$spacing-xs: rem-calc(8);
+$spacing-s: rem-calc(12);
+$spacing-m: rem-calc(20);
+$spacing-l: rem-calc(30);
+$spacing-xl: rem-calc(45);
+$spacing-xxl: rem-calc(60);
+
+$spacings: (
+  '0': 0,
+	'xxs': $spacing-xxs,
+	'xs': $spacing-xs,
+	's': $spacing-s,
+	'm': $spacing-m,
+	'l': $spacing-l,
+	'xl': $spacing-xl,
+	'xxl': $spacing-xxl,
+);
+
+// -----------------------------------------------------------------------------
+// Sides
+// -----------------------------------------------------------------------------
+$sides: (
+	'b': 'bottom',
+	'l': 'left',
+	'r': 'right',
+	't': 'top'
+);
