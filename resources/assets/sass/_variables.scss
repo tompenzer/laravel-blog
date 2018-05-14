@@ -9,10 +9,10 @@ $red:       hsl(348, 100%, 61%);
 
 $green-grass: rgb(75, 220, 83);
 
-$rem-base: 16;
+$rem-pixels: 16;
 
 @function rem-calc($px) {
-  @return ($px / $rem-base) * 1rem;
+  @return 1rem * $px / $rem-pixels;
 }
 
 // -----------------------------------------------------------------------------

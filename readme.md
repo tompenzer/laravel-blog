@@ -1,6 +1,7 @@
-# ThePenzone.com blog - forked from https://github.com/guillaumebriday/laravel-blog
+# ThePenzone.com blog
 
-This repo is forked from github.com/guillaumebriday/laravel-blog, to house modifications to suit deployment on the ThePenzone.com blog.
+This repo is forked from https://github.com/guillaumebriday/laravel-blog, to
+house modifications to suit deployment on the ThePenzone.com blog.
 
 ## Installation
 
@@ -12,36 +13,32 @@ Setting up your development environment on your local machine:
 ```
 $ git clone git@github.com:tompenzer/penzone.git
 $ cd penzone
-$ cp .env.example .env
-$ docker-compose run --rm --no-deps blog-server composer install
-$ docker-compose run --rm --no-deps blog-server php artisan key:generate
-$ docker run --rm -it -v $(pwd):/app -w /app node yarn install
-$ docker-compose up -d
+$ ./startup.sh
 ```
 
-## Before starting
-You need to run the migrations with the seeds:
-```
-$ docker-compose run --rm blog-server php artisan migrate --seed
-```
-If you get an error at this point, try first connecting to the docker mysql
-image server with any sql client with the following credentials and try again:
+## Note - potential sql error
+If you get a mysql error at the end of the startup process, try connecting to
+the docker mysql image server with any SQL client (i.e. Sequel Pro if you're on
+a Mac), with the following credentials:
 ```
 host: 0.0.0.0
 port: 3306
 user: root
 pass: secret
 ```
+And then try running the database migrations manually:
+```
+docker-compose run --rm blog-server php artisan migrate --seed
+```
 
-This will create a new user that you can use to sign in:
+This will create the default admin user that you can use to sign in.
+
+## Usage
+
+Use the following credentials to log in, so you can create users and posts:
 ```
 Email : admin@example.com
 Password : admin
-```
-
-And then, compile the assets :
-```
-$ docker run --rm -it -v $(pwd):/app -w /app node yarn run dev
 ```
 
 
