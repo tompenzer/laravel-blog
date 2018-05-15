@@ -1,7 +1,8 @@
-# ThePenzone.com blog
+# ThePenzone.com blog repository
 
-This repo is forked from https://github.com/guillaumebriday/laravel-blog, to
-house modifications to suit deployment on the ThePenzone.com blog.
+The source for the blog ThePenzone.com, forked from
+https://github.com/guillaumebriday/laravel-blog.
+
 
 ## Installation
 
