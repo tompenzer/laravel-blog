@@ -16,17 +16,5 @@
     <div v-pre class="post-content">
       {!! $post->content !!}
     </div>
-
-    <p class="mt-3">
-      <like
-        likes_count="{{ $post->likes_count }}"
-        liked="{{ $post->isLiked() }}"
-        item_id="{{ $post->id }}"
-        item_type="posts"
-        logged_in="{{ Auth::check() }}"
-      ></like>
-    </p>
   </div>
-
-  @include ('comments/_list')
 @endsection

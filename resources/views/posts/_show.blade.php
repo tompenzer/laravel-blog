@@ -12,16 +12,6 @@
 
     <p class="card-text">
       <small class="text-muted">{{ humanize_date($post->posted_at) }}</small><br>
-      <small class="text-muted">
-        <i class="fa fa-comments-o" aria-hidden="true"></i> {{ $post->comments_count }}
-        <like
-          likes_count="{{ $post->likes_count }}"
-          liked="{{ $post->isLiked() }}"
-          item_id="{{ $post->id }}"
-          item_type="posts"
-          logged_in="{{ Auth::check() }}"
-        ></like>
-      </small>
     </p>
   </div>
 </div>
