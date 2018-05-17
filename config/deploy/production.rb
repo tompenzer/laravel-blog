@@ -1,4 +1,4 @@
-server 'laravel-blog.com', user: 'ubuntu', roles: %w{app db web}
+server 'example.com', user: 'deploy', roles: %w{app db web}
 
 after 'deploy:updated', 'docker:compose'
 after 'deploy:updated', 'docker:build'

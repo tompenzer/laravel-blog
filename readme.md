@@ -33,7 +33,7 @@ pass: secret
 
 And then try running the database migrations manually:
 ```
-docker-compose run --rm blog-server php artisan migrate --seed
+$ docker-compose run --rm blog-server php artisan migrate --seed
 ```
 
 This will create the default admin user that you can use to sign in.

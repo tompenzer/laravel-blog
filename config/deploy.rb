@@ -1,15 +1,15 @@
 # config valid only for current version of Capistrano
-lock '3.9.1'
+lock '3.10.2'
 
-set :application, 'laravel-blog'
-set :repo_url, 'git@github.com:guillaumebriday/laravel-blog.git'
+set :application, 'penzone'
+set :repo_url, 'git@github.com:tompenzer/penzone.git'
 
 # Default branch is :master
 set :branch, :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/laravel-blog'
+set :deploy_to, '/var/www/penzone'
 
 # Path to the dotenv file
 set :dotenv, '/var/www/.env'
