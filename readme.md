@@ -1,7 +1,9 @@
 # ThePenzone.com blog repository
 
-The source for the blog ThePenzone.com, forked from
-https://github.com/guillaumebriday/laravel-blog.
+The source for the blog [ThePenzone.com](http://thepenzone.com), repo hosted at
+https://github.com/tompenzer/penzone. Largely a fork of
+https://github.com/guillaumebriday/laravel-blog, with the front-end package
+manager changed from NPM to Yarn.
 
 
 ## Installation
@@ -74,6 +76,14 @@ for a version 1.0.0/latest release:
 ```
 $ cd provisioning
 $ docker build -f Dockerfile -t tompenzer/penzone:1.0.0 -t tompenzer/penzone:latest -t tompenzer/penzone:1 -t tompenzer/penzone:1.0 .
+```
+
+
+## Starting the docker environment in production Mode
+
+If you pass the word `production` as an argument to `startup.sh`, it'll build the front-end in production mode:
+```
+$ ./startup.sh production
 ```
 
 

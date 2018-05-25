@@ -1,4 +1,4 @@
-server 'example.com', user: 'deploy', roles: %w{app db web}
+server 'ec2-34-214-28-130.us-west-2.compute.amazonaws.com', user: 'ec2-user', roles: %w{app db web}
 
 after 'deploy:updated', 'docker:compose'
 after 'deploy:updated', 'docker:build'

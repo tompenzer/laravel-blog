@@ -1,4 +1,6 @@
+**/.DS_Store
 /node_modules
+provisioning/deploy.sh
 public/
 !public/index.php
 !public/.htaccess
@@ -9,6 +11,7 @@ public/
 /.idea
 /.vagrant
 .env
+.env.production
 .php_cs.cache
 /storage/debugbar
 /storage/tmp
