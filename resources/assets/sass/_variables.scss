@@ -1,3 +1,6 @@
+// -----------------------------------------------------------------------------
+// Colors
+// -----------------------------------------------------------------------------
 $white:         #fff;
 $black:         #000;
 $grey-xxlight:  #eee;
@@ -36,39 +39,48 @@ $cloud-colors: (
     $cloud-pink,
 );
 
-//sunset
-$sunset-yellow: #FFE460;
-$sunset-orange: #FF7519;
-// water
+$sunset-yellow: #ffe460;
+$sunset-orange: #ff7519;
+
 $water-blue: #60bfff;
 $water-blue-dark: #26547c;
 
+
+// -----------------------------------------------------------------------------
+// Fonts
+// -----------------------------------------------------------------------------
+$font-family-base: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-contrast: "Dancing Script", "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+
+// -----------------------------------------------------------------------------
+// Spacing
+// -----------------------------------------------------------------------------
 $rem-pixels: 16;
 
 @function rem-calc($px) {
   @return 1rem * $px / $rem-pixels;
 }
 
-// -----------------------------------------------------------------------------
-// Spacing
-// -----------------------------------------------------------------------------
-$spacing-xxs: rem-calc(4);
+$spacing-2xs: rem-calc(4);
 $spacing-xs: rem-calc(8);
 $spacing-s: rem-calc(12);
 $spacing-m: rem-calc(20);
 $spacing-l: rem-calc(30);
 $spacing-xl: rem-calc(45);
-$spacing-xxl: rem-calc(60);
+$spacing-2xl: rem-calc(60);
+$spacing-3xl: rem-calc(100);
 
 $spacings: (
     '0': 0,
-	'xxs': $spacing-xxs,
+	'2xs': $spacing-2xs,
 	'xs': $spacing-xs,
 	's': $spacing-s,
 	'm': $spacing-m,
 	'l': $spacing-l,
 	'xl': $spacing-xl,
-	'xxl': $spacing-xxl,
+	'2xl': $spacing-2xl,
+    '3xl': $spacing-3xl,
 );
 
 // -----------------------------------------------------------------------------

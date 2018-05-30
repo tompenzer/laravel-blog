@@ -11,7 +11,7 @@ docker-compose up -d
 # If 'production' is passed as the first argument, build front-end in production
 # mode and don't apply DB migrations/seeds.
 if [ "$1" == 'production' ]; then
-  docker run --rm -it -v $(pwd):/app -w /app node yarn run production
+  docker run --rm -it -v $(pwd):/app -w /app node yarn run prod
 else
   docker run --rm -it -v $(pwd):/app -w /app node yarn run dev
 

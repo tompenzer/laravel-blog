@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UsersRequest;
+use App\Models\MediaLibrary;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -28,7 +29,8 @@ class UserController extends Controller
     {
         return view('admin.users.edit', [
             'user' => $user,
-            'roles' => Role::all()
+            'roles' => Role::all(),
+            'media' => MediaLibrary::first()->media()->get()->pluck('name', 'id')
         ]);
     }
 
@@ -37,7 +39,7 @@ class UserController extends Controller
      */
     public function update(UsersRequest $request, User $user): RedirectResponse
     {
-        $user->update(array_filter($request->only(['name', 'email', 'password'])));
+        $user->update(array_filter($request->only(['name', 'email', 'password', 'title', 'blurb', 'media_id'])));
 
         $role_ids = array_values($request->get('roles', []));
         $user->roles()->sync($role_ids);

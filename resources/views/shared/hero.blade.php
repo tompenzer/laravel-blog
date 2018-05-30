@@ -33,5 +33,5 @@
         <use xlink:href="{{ mix('/images/sprite.svg') }}#cloud4"></use>
     </svg>
 
-    <span class="slogan margin-r-l" style="float: right; position: relative; z-index: 1;">Tom Penzer's deep thoughts and miscellanea</span>
+    <span class="slogan font-fancy text-grey-dark margin-r-l" style="float: right; position: relative; z-index: 1;">Tom Penzer's deep thoughts and miscellanea</span>
 </div>

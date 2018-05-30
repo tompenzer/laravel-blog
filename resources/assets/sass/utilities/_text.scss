@@ -24,3 +24,7 @@ $text-colors: (
 		color: #{$color};
 	}
 }
+
+.font-fancy {
+	font-family: $font-family-contrast;
+}

@@ -12,12 +12,13 @@
 
 // Fonts
 @import "~lato-font/scss/lato-font";
-@import "~typeface-dancing-script";// Deprecated .css import.
+@import "~typeface-dancing-script/index.css";
 
 // Modules
 @import "modules/form";
 @import "modules/turbolinks";
 @import "modules/panels";
+@import "modules/profile";
 @import "modules/buttons";
 
 // Shared

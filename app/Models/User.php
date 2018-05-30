@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\belongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -18,7 +19,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'provider', 'provider_id', 'registered_at', 'api_token'
+        'name',
+        'email',
+        'password',
+        'provider',
+        'provider_id',
+        'registered_at',
+        'api_token',
+        'title',
+        'blurb',
+        'media_id',
     ];
 
     /**
@@ -145,5 +155,21 @@ class User extends Authenticatable
     public function roles(): belongsToMany
     {
         return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    /**
+     * Return the user's media item (profile pic)
+     */
+    public function media(): BelongsTo
+    {
+        return $this->BelongsTo(Media::class, 'media_id');
+    }
+
+    /**
+     * return true if the post has a thumbnail
+     */
+    public function hasMedia(): bool
+    {
+        return filled($this->media_id);
     }
 }
