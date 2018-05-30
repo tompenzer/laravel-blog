@@ -1,5 +1,5 @@
 <div class="hero">
-    <svg class="cloud cloud-shimmer-floating4 top-20 left-20">
+    <svg class="cloud cloud-shimmer-floating6 top-20 left-20">
         <use xlink:href="{{ mix('/images/sprite.svg') }}#cloud4"></use>
     </svg>
 
@@ -15,7 +15,7 @@
         <use xlink:href="{{ mix('/images/sprite.svg') }}#cloud3"></use>
     </svg>
 
-    <svg class="cloud cloud-shimmer-floating1 top-20 right-20">
+    <svg class="cloud cloud-shimmer-floating7 top-20 right-20">
         <use xlink:href="{{ mix('/images/sprite.svg') }}#cloud1"></use>
     </svg>
 
@@ -29,7 +29,9 @@
         <use xlink:href="{{ mix('/images/sprite.svg') }}#logo"></use>
     </svg>
 
-    <svg class="cloud cloud-shimmer-floating4 bottom-10 right-5">
+    <svg class="cloud cloud-shimmer-floating4 bottom-5 right-5">
         <use xlink:href="{{ mix('/images/sprite.svg') }}#cloud4"></use>
     </svg>
+
+    <span class="slogan margin-r-l" style="float: right; position: relative; z-index: 1;">Tom Penzer's deep thoughts and miscellanea</span>
 </div>

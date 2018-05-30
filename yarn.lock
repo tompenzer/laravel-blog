@@ -4422,6 +4422,10 @@ laravel-mix@^2.1.11:
     webpack-notifier "^1.5.1"
     yargs "^8.0.2"
 
+lato-font@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/lato-font/-/lato-font-3.0.0.tgz#91b837e2374b668fb7331d44c894d37a2d9f8e11"
+
 lazy-cache@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
@@ -7390,6 +7394,10 @@ type-is@~1.6.15, type-is@~1.6.16:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typeface-dancing-script@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-dancing-script/-/typeface-dancing-script-0.0.54.tgz#f5c7294faf665efa440c33976c45dbcd38a67ac2"
 
 uglify-es@^3.3.4:
   version "3.3.9"

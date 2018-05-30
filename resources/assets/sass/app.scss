@@ -1,6 +1,7 @@
 @import "variables";
 
 // Bootstrap
+@import "bootstrap-globals";
 @import "~bootstrap/scss/bootstrap";
 
 // Base
@@ -8,6 +9,10 @@
 
 // Font-awesome
 @import "~font-awesome/scss/font-awesome";
+
+// Fonts
+@import "~lato-font/scss/lato-font";
+@import "~typeface-dancing-script";// Deprecated .css import.
 
 // Modules
 @import "modules/form";

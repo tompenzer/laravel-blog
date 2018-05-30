@@ -7,7 +7,9 @@
     @endif
 
     <div class="post-body">
-      <h4 v-pre class="post-title">{{ link_to_route('posts.show', $post->title, $post) }}</h4>
+      <h4 v-pre class="post-title">
+          <a class="text-white" href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
+      </h4>
 
       <p class="post-text"><small v-pre class="text-muted">{{ link_to_route('users.show', $post->author->fullname, $post->author) }}</small></p>
 

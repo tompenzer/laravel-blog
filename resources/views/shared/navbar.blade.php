@@ -1,7 +1,7 @@
-<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-md">
+<nav class="navbar navbar-dark fixed-top navbar-expand-md">
     <div class="container">
         <!-- Branding Image -->
-        <a class="branding" href="{{ route('home') }}" title="ThePenzone.com home">
+        <a class="branding navbar-brand" href="{{ route('home') }}" title="ThePenzone.com home">
             <svg class="branding-image">
     			<use xlink:href="{{ mix('/images/sprite.svg') }}#logo"></use>
     		</svg>
@@ -34,25 +34,35 @@
 
                         <div class="dropdown-divider"></div>
 
-                        <a href="{{ url('/logout') }}"
+                        {{ Form::open(['route' => 'logout']) }}
+                        <a href="{{ route('logout') }}"
                             class="dropdown-item"
                             onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                        event.target.parentNode.submit();">
                             @lang('auth.logout')
                         </a>
-
-                        <form id="logout-form" class="d-none" action="{{ url('/logout') }}" method="POST">
-                            {{ csrf_field() }}
-                        </form>
+                        {{ Form::close() }}
                     </div>
                 </li>
             </ul>
             @endauth
 
             @guest
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="{{ route('posts.feed') }}" class="nav-link d-inline-block margin-r-s" data-turbolinks="false" title="ThePenzone.com source code on GitHub.com">
+                            <i class="fa fa-git" aria-hidden="true"></i>
+                        </a>
 
-              @include ('shared/_search_form')
+                        <a href="{{ route('posts.feed') }}" class="nav-link d-inline-block margin-r-l" data-turbolinks="false" title="RSS feed">
+                            <i class="fa fa-rss" aria-hidden="true"></i>
+                        </a>
+                    </li>
 
+                    <li class="nav-item">
+                        @include ('shared/_search_form')
+                    </li>
+                </ul>
             @endguest
         </div>
     </div>

@@ -3,9 +3,7 @@
     <div id="app">
         @include('shared/navbar')
 
-        @include ('shared.hero')
-
-        <div class="container">
+        <div class="container margin-t-xxl">
             @include('shared/alerts')
 
             <div class="row">

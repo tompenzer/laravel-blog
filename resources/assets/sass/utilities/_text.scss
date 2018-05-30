@@ -8,7 +8,19 @@ $text-sizes: (
 );
 
 @each $key, $size in $text-sizes {
-  .text-#{$key} {
+	.text-#{$key} {
 		font-size: #{$size};
+	}
+}
+
+$text-colors: (
+	'white': $grey-xxlight,
+	'grey-dark': $grey-dark,
+	'grey-light': $grey-xlight,
+);
+
+@each $key, $color in $text-colors {
+	.text-#{$key} {
+		color: #{$color};
 	}
 }

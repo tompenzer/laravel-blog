@@ -23,20 +23,17 @@
 
                         <div class="dropdown-divider"></div>
 
-                        <a href="{{ url('/logout') }}"
+                        {{ Form::open(['route' => 'logout']) }}
+                        <a href="{{ route('logout') }}"
                             class="dropdown-item"
                             onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                        event.target.parentNode.submit();">
                             @lang('auth.logout')
                         </a>
-
-                        <form id="logout-form" class="d-none" action="{{ url('/logout') }}" method="POST">
-                            {{ csrf_field() }}
-                        </form>
+                        {{ Form::close() }}
                     </div>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-

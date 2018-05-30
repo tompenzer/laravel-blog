@@ -1,21 +1,11 @@
 @extends('layouts.landing')
 
 @section('content')
-  <div class="d-flex justify-content-between">
-    <div class="p-2">
-      @if (request()->has('q'))
-        <h2>{{ trans_choice('posts.search_results', $posts->count(), ['query' => request()->input('q')]) }}</h2>
-      @else
-        <h2>@lang('posts.last_posts')</h2>
-      @endif
-    </div>
-
-    <div class="p-2">
-      <a href="{{ route('posts.feed') }}" class="pull-right" data-turbolinks="false">
-          <i class="fa fa-rss" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
+  @if (request()->has('q'))
+    <h2 class="text-grey-light">{{ trans_choice('posts.search_results', $posts->count(), ['query' => request()->input('q')]) }}</h2>
+  @else
+    <h2 class="text-grey-light">@lang('posts.last_posts')</h2>
+  @endif
 
   @include ('posts/_list')
 @endsection
