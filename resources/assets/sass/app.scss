@@ -16,14 +16,17 @@
 @import "modules/buttons";
 
 // Shared
+@import "shared/nav";
 @import "shared/sidebar";
 @import "shared/footer";
-
+@import "shared/hero";
 // Layouts
 @import "layouts/posts";
 @import "layouts/administration";
 
 // Utilities
+@import "utilities/background";
 @import "utilities/margin";
 @import "utilities/padding";
+@import "utilities/position";
 @import "utilities/text";

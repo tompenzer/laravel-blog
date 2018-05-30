@@ -1,22 +1,18 @@
 html {
     position: relative;
     min-height: 100%;
-  }
-
-.huge {
-    font-size: 40px;
 }
 
 body > #app > .container, {
-    margin-top: 100px;
-    margin-bottom: 250px;
+    margin-top: 10px;
+    margin-bottom: 100px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
 @include media-breakpoint-down(xs) {
     body > #app > .container, {
-        margin-bottom: 320px;
+        margin-bottom: 120px;
     }
 }
 

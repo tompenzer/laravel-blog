@@ -1,5 +1,5 @@
 @include ('layouts.head')
-<body class="bg-dark">
+<body class="bkg-water">
     <div id="app">
         @include('shared/navbar')
 

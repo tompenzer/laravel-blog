@@ -1,14 +1,18 @@
 <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-md">
     <div class="container">
         <!-- Branding Image -->
-        {{ link_to_route('home', config('app.name', 'Laravel'), [], ['class' => 'navbar-brand']) }}
+        <a class="branding" href="{{ route('home') }}" title="ThePenzone.com home">
+            <svg class="branding-image">
+    			<use xlink:href="{{ mix('/images/sprite.svg') }}#logo"></use>
+    		</svg>
+        </a>
 
         <!-- Collapsed Hamburger -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
             @admin
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -44,6 +48,12 @@
                 </li>
             </ul>
             @endauth
+
+            @guest
+
+              @include ('shared/_search_form')
+
+            @endguest
         </div>
     </div>
 </nav>

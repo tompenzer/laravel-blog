@@ -34,11 +34,23 @@ Then open `provisioning/deploy.sh` in your editor, and replace all instances of
 `[nginx image repository URI]` and `[blog-server image repository URI]` with the
 respective repository URIs.
 
+To run the deployment script for the blog-server image:
+```
+$ cd provisioning
+$ ./deploy.sh
+```
+
+To run the deployment script for the nginx image:
+```
+$ cd provisioning
+$ ./deploy.sh nginx
+```
+
 
 ## Update ECS Tasks, Services
 Once your updated images are pushed to Amazon ECR, you can create a new version
-of your blog task definition, update your cluster service, and run the new
-version of the blog task.
+of your blog task definition to pull in the latest image version, update your
+cluster service, and run the new version of the blog task.
 
 
 ## Initial Database Config
@@ -48,9 +60,9 @@ branch, and a database with the name and credentials you've entered into your
 blog EC2 instance.
 
 You'll need to run the database migration upon creation of a new DB instance, to
-enable logging in an posting content. You can SSH into your EC2 instance and run
-the migrations as such, assuming you've configured your ssh client to connect to
-ec2 domains using your private SSH key (otherwise it's
+enable logging in and posting content. You can SSH into your EC2 instance and
+run the migrations as such, assuming you've configured your ssh client to
+connect to ec2 domains using your private SSH key (otherwise it's
 `ssh -i ~/.ssh/id_rsa ec2-user@...`, substituting the path to the private SSH
 key you used for your AWS user account if different):
 ```

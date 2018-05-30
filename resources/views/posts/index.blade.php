@@ -1,9 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.landing')
 
 @section('content')
-
-  @include ('posts/_search_form')
-
   <div class="d-flex justify-content-between">
     <div class="p-2">
       @if (request()->has('q'))

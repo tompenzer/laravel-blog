@@ -16,7 +16,12 @@ public/
 /storage/debugbar
 /storage/tmp
 /storage/medialibrary
+
+# Capistrano
 /log
+
+# Yarn
+yarn-error.log
 
 # Use yarn.lock
 package-lock.json

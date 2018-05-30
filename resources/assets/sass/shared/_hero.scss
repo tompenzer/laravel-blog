@@ -1,0 +1,66 @@
+$sunset-gradient-1: $white;
+$sunset-gradient-2: $sunset-yellow;
+$sunset-gradient-3: $sunset-orange;
+
+// Need to generate a bunch of variants so we can have a bunch of floating and
+// shimmering clouds with unsynced movements and color variations
+@for $i from 1 through 10 {
+    $base-color: nth($cloud-colors, random(length($cloud-colors)));
+
+    // And now both animations combined.
+    @keyframes cloudshimmerfloat#{$i} {
+        0% {
+            fill: $base-color;
+            transform: translate(0, 0);
+        }
+        @for $j from 1 through 19 {
+            #{$j * 5}% {
+                fill: nth($cloud-colors, random(length($cloud-colors)));
+                // Since random() converts its input to 0-indexed, random(33) will
+                // output a range from 0-32, from which we subtract 16 to obtain the
+                // desired range of -16px to 16px.
+                transform: translate((random(33) - 16) + px, (random(33) - 16) + px);
+            }
+        }
+        100% {
+            fill: $base-color;
+            transform: translate(0, 0);
+        }
+    }
+
+    .cloud-shimmer-floating#{$i} {
+        animation: cloudshimmerfloat#{$i} 40s infinite ease-in-out;
+        -webkit-animation: cloudshimmerfloat#{$i} 40s infinite ease-in-out;
+    }
+}
+
+.hero {
+    background: radial-gradient(90vmin circle at 50% 100%, $sunset-gradient-1 5%, $sunset-gradient-2 8%, $sunset-gradient-3 90%);
+    margin-top: 62px;
+    min-height: 350px;
+    position: relative;
+    width: 100%;
+
+    .cloud {
+        min-width: 320px;
+        position: absolute;
+        width: 20%;
+    }
+
+    .cloud-main {
+        height: 320px;
+        width: 500px;
+    }
+
+    .wordmark {
+        fill: $grey-mdark;
+        height: 100px;
+        left: 50%;
+        margin-left: -200px;
+        position: absolute;
+        stroke: $grey-xxdark;
+        stroke-width: 0.1px;
+        top: 100px;
+        width: 400px;
+    }
+}

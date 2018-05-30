@@ -1,0 +1,80 @@
+.bottom-5 {
+    bottom: 5%;
+}
+
+.bottom-10 {
+    bottom: 10%;
+}
+
+.bottom-20 {
+    bottom: 20%;
+}
+
+.bottom-30 {
+    bottom: 30%;
+}
+
+.left-5 {
+    left: 5%;
+}
+
+.left-10 {
+    left: 10%;
+}
+
+.left-20 {
+    left: 20%;
+}
+
+.left-30 {
+    left: 30%;
+}
+
+.right-5 {
+    right: 5%;
+}
+
+.right-10 {
+    right: 10%;
+}
+
+.right-20 {
+    right: 20%;
+}
+
+.right-30 {
+    right: 30%;
+}
+
+.top-5 {
+    top: 5%;
+}
+
+.top-10 {
+    top: 10%;
+}
+
+.top-20 {
+    top: 20%;
+}
+
+.top-30 {
+    top: 30%;
+}
+
+.absolute-center-outer {
+    position: relative;
+
+    .absolute-center-inner {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.flex-center-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

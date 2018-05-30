@@ -1,5 +1,4 @@
 **/.DS_Store
-node_modules
 .env
 .git
 .gitattributes
@@ -13,6 +12,8 @@ Gemfile
 Gemfile.lock
 laravel-echo-server.json
 LICENSE
+log
+node_modules
 package-lock.json
 package.json
 phpunit.xml
@@ -21,3 +22,4 @@ startup.sh
 storage/logs/laravel.log
 webpack.mix.js
 yarn.lock
+yarn-error.log

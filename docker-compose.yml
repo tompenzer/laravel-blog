@@ -8,8 +8,8 @@ services:
       - mysql
       - mysql-test
       - redis
-#    volumes:
-#      - ./:/application:cached
+    volumes:
+      - ./:/application:cached
 
   queue-server:
     build: ./provisioning/blog_server/development
@@ -17,8 +17,8 @@ services:
     command: php artisan queue:work
     depends_on:
       - mysql
-#    volumes:
-#      - ./:/application:cached
+    volumes:
+      - ./:/application:cached
 
   mysql:
     image: mysql:5.7
@@ -44,7 +44,7 @@ services:
       - '8000:8000'
     volumes:
       - ./provisioning/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:cached
-#      - ./public:/application/public:cached
+      - ./public:/application/public:cached
     depends_on:
       - blog-server
 
@@ -58,8 +58,8 @@ services:
     ports:
       - '8888:8888'
     working_dir: /application
-#    volumes:
-#      - .:/application:cached
+    volumes:
+      - .:/application:cached
     depends_on:
       - redis
       - blog-server

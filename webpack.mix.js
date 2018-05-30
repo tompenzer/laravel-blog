@@ -21,5 +21,5 @@ mix.copyDirectory('resources/assets/images', 'public/images')
 mix.copy('node_modules/trumbowyg/dist/ui/icons.svg', 'public/images/icons.svg')
 
 if (mix.inProduction()) {
-  mix.version()
+  mix.version(['public/images'])
 }

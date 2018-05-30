@@ -1,0 +1,6 @@
+$water-gradient-1: $water-blue-dark;
+$water-gradient-2: darken($water-blue-dark, 20%);
+
+.bkg-water {
+    background: radial-gradient(ellipse at 50% 0%, $water-gradient-1, $water-gradient-2 90%);
+}
