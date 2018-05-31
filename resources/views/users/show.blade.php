@@ -11,7 +11,7 @@
                 <h2 v-pre class="card-title mb-0">{{ $user->name }}</h2>
                 <small class="card-subtitle mb-2 text-muted">{{ $user->title }}</small>
 
-                <p class="card-text text-left margin-t-m">{!! $user->blurb !!}</p>
+                <div class="card-text text-left margin-t-m margin-b-m">{!! $user->blurb !!}</div>
 
                 @profile($user)
                 {{ link_to_route('users.edit', __('users.edit'), [], ['class' => 'btn btn-primary btn-sm float-right']) }}
@@ -21,9 +21,9 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row margin-t-m">
     <div class="col-md-12">
-        <h2>@lang('posts.last_posts')</h2>
+        <h2 class="text-grey-light">@lang('posts.last_posts')</h2>
         @each('users/_post', $posts, 'post')
     </div>
 </div>

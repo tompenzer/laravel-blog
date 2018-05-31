@@ -14,14 +14,18 @@ $text-sizes: (
 }
 
 $text-colors: (
-	'white': $grey-xxlight,
+	'light': $grey-xxlight,
 	'grey-dark': $grey-dark,
-	'grey-light': $grey-xlight,
+	'grey-light': $grey-light,
 );
 
 @each $key, $color in $text-colors {
 	.text-#{$key} {
 		color: #{$color};
+	}
+
+	a.text-#{$key}:hover {
+		color: darken($color, 20%);
 	}
 }
 

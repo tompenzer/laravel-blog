@@ -1,4 +1,4 @@
-<div class="hero">
+<div class="hero margin-b-m">
     <svg class="cloud cloud-shimmer-floating6 top-20 left-20">
         <use xlink:href="{{ mix('/images/sprite.svg') }}#cloud4"></use>
     </svg>
@@ -33,5 +33,5 @@
         <use xlink:href="{{ mix('/images/sprite.svg') }}#cloud4"></use>
     </svg>
 
-    <span class="slogan font-fancy text-grey-dark margin-r-l" style="float: right; position: relative; z-index: 1;">Tom Penzer's deep thoughts and miscellanea</span>
+    <span class="slogan font-fancy text-xlarge text-grey-dark margin-r-l" style="float: right; position: relative; z-index: 1;">Tom Penzer's deep thoughts and miscellanea</span>
 </div>

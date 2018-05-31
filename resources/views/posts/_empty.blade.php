@@ -1,1 +1,1 @@
-@lang('posts.empty')
+<span class="text-light">@lang('posts.empty')</span>

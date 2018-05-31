@@ -11,7 +11,7 @@ return [
   'created' => 'Post created',
   'updated' => 'Post updated',
   'deleted' => 'Post deleted',
-  'empty' => "There is no post for the moment.",
+  'empty' => "No posts have been created.",
   'new_posts' => 'new post|new posts',
   'count' => ':count post|:count posts',
   'show' => "Show post",
