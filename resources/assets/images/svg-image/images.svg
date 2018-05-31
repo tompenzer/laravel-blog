@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" onload="generateImage()">
+  <title>SVG Retina Image Demo</title>
+  <desc>
+    By @tpenzer - http://thepenzone.com/svg-image/
+  </desc>
+  <script type="application/ecmascript"> <![CDATA[
+    function generateImage() {
+        // parse the requested image ID from the location hash, get its container element
+        var image_id = location.href.substring(location.href.indexOf('#') + 1);
+        var container = document.getElementById(image_id);
+
+        // for Retina displays, set image href to {image_id} + {2x filename key}, else {1x filename key}
+        if (window.devicePixelRatio > 1) {
+          var filename_res_key = "-2x"
+        } else {
+          var filename_res_key = "-1x"
+        };
+
+        // if image container has a class set, and has class 'jpg', make it use a .jpg filename extension, else .png
+        if ((container.getAttributeNS(null, 'class')) && container.getAttributeNS(null, 'class').indexOf('jpg') != "-1") {
+          var filename_ext = ".jpg"
+        } else {
+          var filename_ext = ".png"
+        };
+
+        // split the viewBox string at every space, yielding an array of x, y, width and height values
+        var view_box = container.getAttributeNS(null, 'viewBox').split(/\s+/g);
+
+        // create a new image element and set its attributes
+        var image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+        image.setAttributeNS(null, "x", view_box[0]);
+        image.setAttributeNS(null, "y", view_box[1]);
+        image.setAttributeNS(null, "width", view_box[2]);
+        image.setAttributeNS(null, "height", view_box[3]);
+        image.setAttributeNS('http://www.w3.org/1999/xlink', "href", image_id + filename_res_key + filename_ext);
+
+        //add the new image element to the container svg
+        container.appendChild(image);
+    }
+  ]]> </script>
+  <svg id="logo" viewBox="0 0 149 74"></svg>
+  <svg id="promo" viewBox="0 0 200 150"></svg>
+  <svg id="bkg" class="jpg" viewBox="0 0 960 720"></svg>
+</svg>

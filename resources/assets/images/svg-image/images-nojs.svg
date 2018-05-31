@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="images" class="image" version="1.1" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" onload="setImageHiRes()">
+  <title>SVG Retina Image Demo</title>
+  <desc>
+    By @tpenzer - http://thepenzone.com/svg-image/
+  </desc>
+  <style>
+    svg .image { display: none }
+    svg .image:target { display: inherit }
+  </style>
+  <script type="application/ecmascript"> <![CDATA[
+    function setImageHiRes() {
+        if (window.devicePixelRatio > 1) {
+            // parse the requested image ID from the location hash, get its image element
+            var image_id = location.href.substring(location.href.indexOf('#') + 1);
+            var container = document.getElementById(image_id);
+            var image = container.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'image')[0];
+
+            // if image container has a class of 'jpg', make it use a .jpg filename extension, else .png
+            if (container.getAttributeNS(null, 'class').indexOf('jpg') != "-1") {
+              var filename_ext = ".jpg"
+            } else {
+              var filename_ext = ".png"
+            };
+
+            // set image href to {image_id} + {2x filename key}
+            image.setAttributeNS('http://www.w3.org/1999/xlink', "href", image_id + '-2x' + filename_ext);
+        };
+    }
+  ]]> </script>
+  <svg id="logo" class="image" viewBox="0 0 149 74">
+    <image xlink:href="logo-1x.png" x="0" y="0" width="149" height="74"/>
+  </svg>
+  <svg id="promo" class="image" viewBox="0 0 200 150">
+    <image xlink:href="promo-1x.png" x="0" y="0" width="200" height="150"/>
+  </svg>
+  <svg id="bkg" class="image jpg" viewBox="0 0 960 720">
+    <image xlink:href="bkg-1x.jpg" x="0" y="0" width="960" height="720"/>
+  </svg>
+</svg>
