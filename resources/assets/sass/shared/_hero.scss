@@ -41,7 +41,7 @@ $sunset-gradient-3: $sunset-orange;
     width: 100%;
 
     .cloud {
-        min-width: 320px;
+        min-width: 280px;
         position: absolute;
         width: 20%;
     }
@@ -49,17 +49,18 @@ $sunset-gradient-3: $sunset-orange;
     .cloud-main {
         height: 320px;
         width: 500px;
+        max-width: 90%;
     }
 
     .wordmark {
         fill: $grey-mdark;
         height: 100px;
         left: 50%;
-        margin-left: -200px;
+        margin-left: -150px;
         position: absolute;
         stroke: $grey-xxdark;
         stroke-width: 0.1px;
         top: 100px;
-        width: 400px;
+        width: 300px;
     }
 }
