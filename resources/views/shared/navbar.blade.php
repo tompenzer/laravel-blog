@@ -50,7 +50,7 @@
             @guest
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="{{ route('posts.feed') }}" class="nav-link d-inline-block margin-r-s" data-turbolinks="false" title="ThePenzone.com source code on GitHub.com">
+                        <a class="nav-link d-inline-block margin-r-s" href="https://github.com/tompenzer/penzone" target="_blank" data-turbolinks="false" title="ThePenzone.com source code on GitHub.com">
                             <i class="fa fa-git" aria-hidden="true"></i>
                         </a>
 
