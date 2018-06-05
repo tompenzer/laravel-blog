@@ -22,7 +22,7 @@ class UsersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|alpha_dash',
+            'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . auth()->user()->id,
         ];
     }
