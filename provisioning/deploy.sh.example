@@ -1,17 +1,17 @@
+image_name=penzone_app
+dockerfile_path=blog_server/production/Dockerfile
+repo_uri=[blog-server image repository URI]
+
 if [ "$1" == 'nginx' ]; then
-  docker build -f nginx/Dockerfile -t nginx ..
-
-  docker tag nginx [nginx image repository URI]:latest
-
-  $(aws ecr get-login --no-include-email)
-
-  docker push [nginx image repository URI]:latest
-else
-  docker build -f blog_server/production/Dockerfile -t blog-server ..
-
-  docker tag blog-server [blog-server image repository URI]:latest
-
-  $(aws ecr get-login --no-include-email)
-
-  docker push [blog-server image repository URI]:latest
+  image_name=penzone_nginx
+  dockerfile_path=nginx/Dockerfile
+  repo_uri=[nginx image repository URI]
 fi
+
+docker build -f $dockerfile_path -t $image_name ..
+
+docker tag $image_name $repo_uri:latest
+
+$(aws ecr get-login --no-include-email)
+
+docker push $repo_uri:latest
