@@ -29,7 +29,7 @@ return [
         /*
          * The domain that should be prepended when generating urls.
          */
-        'domain' => 'https://' . env('AWS_BUCKET') . '.s3.amazonaws.com',
+        'domain' => env('AWS_PUBLIC_ENDPOINT'),
     ],
 
     'remote' => [
