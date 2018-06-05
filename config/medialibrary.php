@@ -29,7 +29,7 @@ return [
         /*
          * The domain that should be prepended when generating urls.
          */
-        'domain' => env('AWS_URL'),
+        'domain' => env('AWS_BUCKET').'.s3.amazonaws.com',
     ],
 
     'remote' => [
