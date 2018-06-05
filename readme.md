@@ -59,7 +59,7 @@ You can use the admin dashboard section to configure users and content:
 http://localhost:8000/admin/dashboard
 
 
-## Cleaning up and stopping the dev environment:
+## Cleaning up and stopping the dev environment
 
 To have docker take down the server container, wipe the built docker images, and
 erase the database cache, ensuring a fresh build next time, run the following
@@ -67,6 +67,14 @@ command from inside the project directory:
 ```
 $ ./destroy.sh
 ```
+
+
+## MediaLibrary - Local vs Amazon S3 storage
+
+The .env.example file is currently configured to use local storage for the
+MediaLibrary component (used for image gallery creation, attachment to users,
+posts). If you would prefer to store media in Amazon s3, you can set the
+`MEDIALIBRARY_FILESYSTEM_DRIVER` key to `s3` in the appropriate `.env` file(s).
 
 
 ## Building blog server Docker image
