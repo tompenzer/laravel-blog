@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<h2 class="text-light">@lang('contact.form.title')</h2>
+
+@include('shared/message')
+
+<h2 class="text-light">@lang('contact.form.title', ['author' => (isset($recipients->name) ? $recipients->name : __('contact.form.author'))])</h2>
 
 {{ Form::open(['route' => ['contact.send']]) }}
 

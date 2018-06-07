@@ -21,19 +21,31 @@ class ContactController extends Controller
      */
     public function index(Request $request, User $recipient = null): View
     {
+        $messages = null;
+
         if (! isset($recipient->id)) {
             $contactable = User::contactable();
 
-            // No recipient selection if there's only one
-            if ($contactable->count() < 2) {
-                $recipient = [];
-            } else {
-                $recipient = $contactable->pluck('name', 'id');
+            // Auto-select recipient if there's only one, warn if none
+            switch ($contactable->count()) {
+                case 0:
+                    $messages = [
+                        'notification' => [
+                            'status' => 'danger',
+                            'message' => __('contact.form.misconfigured')
+                        ]
+                    ];
+                case 1:
+                    $recipient = $contactable->first();
+                    break;
+                default:
+                    $recipient = $contactable->pluck('name', 'id');
             }
         }
 
         return view('contact', [
-            'recipients' => $recipient
+            'recipients' => $recipient,
+            'messages' => $messages,
         ]);
     }
 
@@ -56,17 +68,29 @@ class ContactController extends Controller
 
         // If we can't find any contactable users, return error.
         if ($recipient->count() === 0) {
-            return redirect()->route('contact')->withErrors(__('contact.form.failed'))->withInput();
+            return redirect()
+                ->route('contact')
+                ->withErrors(__('contact.form.failed'))
+                ->withInput();
         }
 
         $recipient = $recipient->first();
 
         if ($recipient->isContactable()) {
-            Mail::to($recipient->email)->send(new Contact($arguments['email_from'], $arguments['message']));
+            Mail::to($recipient->email)
+                ->send(new Contact(
+                    $arguments['email_from'],
+                    $arguments['message']
+                ));
 
-            return redirect()->route('contact')->withSuccess(__('contact.form.sent'));
+            return redirect()
+                ->route('contact')
+                ->withSuccess(__('contact.form.sent'));
         } else {
-            return redirect()->route('contact')->withErrors(__('contact.form.failed'))->withInput();
+            return redirect()
+                ->route('contact')
+                ->withErrors(__('contact.form.failed'))
+                ->withInput();
         }
     }
 }

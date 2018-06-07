@@ -26,7 +26,7 @@ class Contact extends Mailable
      */
     public function build(): Contact
     {
-        return $this->from($this->email_from, config('app.name', 'ThePenzone.com'))
+        return $this->from(env('MAIL_FROM', 'support@thepenzone.com'), config('app.name', 'ThePenzone.com'))
                     ->subject(__('contact.email.subject'))
                     ->view('emails.contact')
                     ->with([
