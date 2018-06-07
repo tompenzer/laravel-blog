@@ -27,7 +27,7 @@ class Newsletter extends Mailable
      */
     public function build(): Newsletter
     {
-        return $this->from('hello@app.com', config('app.name', 'Laravel'))
+        return $this->from(env('MAIL_FROM', 'support@thepenzone.com'), config('app.name', 'ThePenzone.com'))
                     ->subject(__('newsletter.email.subject'))
                     ->view('emails.newsletter')
                     ->with([
