@@ -21,10 +21,10 @@ return [
     'password_confirmation' => 'Password confirmation',
     'roles' => 'Roles',
     'registered_at' => 'Registered at',
-    'api_token' => "API key",
-    'profile_pic' => "Profile picture",
-    'title' => "Title",
-    'blurb' => "Blurb"
+    'api_token' => 'API key',
+    'profile_pic' => 'Profile picture',
+    'title' => 'Title',
+    'blurb' => 'Blurb',
   ],
 
   'placeholder' => [

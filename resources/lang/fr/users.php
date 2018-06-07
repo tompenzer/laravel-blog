@@ -24,7 +24,7 @@ return [
     'api_token' => "Clé d'API",
     'profile_pic' => "Photo de profile",
     'title' => "Titre",
-    'blurb' => "Description"
+    'blurb' => "Description",
   ],
 
   'placeholder' => [

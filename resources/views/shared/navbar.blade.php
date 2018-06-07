@@ -50,12 +50,16 @@
             @guest
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link d-inline-block margin-r-s" href="https://github.com/tompenzer/penzone" target="_blank" data-turbolinks="false" title="ThePenzone.com source code on GitHub.com">
+                        <a class="nav-link d-inline-block margin-r-s" href="https://github.com/tompenzer/penzone" target="_blank" data-turbolinks="false" title="@lang('nav.git')">
                             <i class="fa fa-git" aria-hidden="true"></i>
                         </a>
 
-                        <a href="{{ route('posts.feed') }}" class="nav-link d-inline-block margin-r-l" data-turbolinks="false" title="RSS feed">
+                        <a class="nav-link d-inline-block margin-r-s" href="{{ route('posts.feed') }}" data-turbolinks="false" title="@lang('nav.rss')">
                             <i class="fa fa-rss" aria-hidden="true"></i>
+                        </a>
+
+                        <a class="nav-link d-inline-block margin-r-l" href="{{ route('contact') }}" data-turbolinks="false" title="@lang('nav.contact')">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
                         </a>
                     </li>
 

@@ -94,6 +94,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Scope a query to contactable users.
+     */
+    public function scopeContactable(Builder $query): Builder
+    {
+        return $query->whereHas('roles', function ($query) {
+            $query->where('roles.name', Role::ROLE_CONTACTABLE);
+        });
+    }
+
+    /**
      * Check if the user can be an author
      */
     public function canBeAuthor(): bool
@@ -123,6 +133,14 @@ class User extends Authenticatable
     public function isEditor(): bool
     {
         return $this->hasRole(Role::ROLE_EDITOR);
+    }
+
+    /**
+     * return true if the user is contactable
+     */
+    public function isContactable(): bool
+    {
+        return $this->hasRole(Role::ROLE_CONTACTABLE);
     }
 
     /**

@@ -20,3 +20,6 @@ Route::get('newsletter-subscriptions/unsubscribe', 'NewsletterSubscriptionContro
 
 Route::get('maskdemo', function() { return view('maskdemo'); })->name('maskdemo');
 Route::get('svg-image', function() { return view('svgimage'); })->name('svgimage');
+
+Route::get('contact', 'ContactController@index')->name('contact');
+Route::post('contact', 'ContactController@send')->name('contact.send');

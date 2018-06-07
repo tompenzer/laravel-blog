@@ -24,7 +24,7 @@ class AddMediaTitleBlurbToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('title');
             $table->dropColumn('blurb');
             $table->dropForeign(['media_id']);
