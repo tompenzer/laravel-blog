@@ -18,7 +18,9 @@
     </div>
 </div>
 
-@if (is_array($recipients) && count($recipients) > 0)
+@if (isset($recipients->id))
+{{ Form::hidden('recipient', $recipients->id) }}
+@elseif (is_array($recipients) && count($recipients) > 0)
 <div class="form-row">
     <div class="form-group col-md-6">
         <label class="text-light">
@@ -31,8 +33,6 @@
         @endif
     </div>
 </div>
-@elseif (! is_array($recipients) && ! empty($recipients))
-{{ Form::hidden('recipient', $recipients) }}
 @endif
 
 <div class="form-row">

@@ -13,17 +13,18 @@ use Mail;
 class ContactController extends Controller
 {
     /**
-     * Show the application dashboard.
+     * Show the contact form.
+     *
+     * @param object $recipient Optional - The user who should receive the
+     *                          contact form submission email. This is accessed
+     *                          via the 'contact.user' route.
      */
-    public function index(Request $request): View
+    public function index(Request $request, User $recipient = null): View
     {
-        if ($request->has('recipient')) {
-            // Pass any explicitly requested recipient
-            $recipient = $request->input('recipient');
-        } else {
+        if (! isset($recipient->id)) {
             $contactable = User::contactable();
 
-            // No recipient selection if there aren't more than one
+            // No recipient selection if there's only one
             if ($contactable->count() < 2) {
                 $recipient = [];
             } else {

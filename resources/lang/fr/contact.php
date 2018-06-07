@@ -11,7 +11,7 @@ return [
   ],
   'email' => [
     'subject' => 'Soumission de Forme Contacte - ' . env('APP_NAME'),
-    'welcome' => 'Vous avez reçu une soumission de la forme de contacte do site ' . env('APP_NAME'),
+    'welcome' => 'Vous avez reçu une soumission de la forme de contacte du site ' . env('APP_NAME'),
     'description' => 'Voiçi les données soumises',
     'from' => 'Envoyeur',
     'message' => 'Message'
