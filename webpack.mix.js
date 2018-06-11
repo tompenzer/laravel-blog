@@ -12,14 +12,16 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+    .sass('resources/assets/sass/app.scss', 'public/css')
 
-mix.js('resources/assets/admin/js/admin.js', 'public/js')
-   .sass('resources/assets/admin/sass/admin.scss', 'public/css')
+mix.js([
+    'resources/assets/admin/js/admin.js'
+], 'public/js/admin.js')
+    .sass('resources/assets/admin/sass/admin.scss', 'public/css')
 
 mix.copyDirectory('resources/assets/images', 'public/images')
 mix.copy('node_modules/trumbowyg/dist/ui/icons.svg', 'public/images/icons.svg')
 
 if (mix.inProduction()) {
-  mix.version(['public/images'])
+    mix.version(['public/images'])
 }

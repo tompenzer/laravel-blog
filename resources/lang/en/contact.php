@@ -5,7 +5,7 @@ return [
     'title' => "Send a message to :author",
     'author' => 'the author',
     'sent' => "Thanks for contacting us. Your message has been received.",
-    'misconfigured' => 'We\'re currently unable to receive messages. Please try again later; maybe it\'ll be fixed by then.',
+    'misconfigured' => 'Either the specified user is currently unable to receive messages, or messaging is currently unavailable.',
     'failed' => 'The message was unable to be sent to the recipient. Please try again later; maybe it\'ll be fixed by then.',
     'email' => 'Your email address',
     'recipient' => 'The desired recipient',

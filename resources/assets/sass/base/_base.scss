@@ -21,13 +21,13 @@ body > #app > .container-fluid {
 }
 
 code {
-    background-color: $darken10;
+    background-color: $darken8;
     border-radius: rem-calc(4);
-    padding: 0.5em;
+    padding: 0.2em 0.4em;
 }
 
 pre {
-    background-color: $darken10;
+    background-color: $darken8;
     padding: $spacing-s;
     border-radius: rem-calc(4);
 

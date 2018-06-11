@@ -23,9 +23,6 @@ RUN docker-php-ext-install gd
 # Installing composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Setting locales
-RUN echo en_US.UTF-8 UTF-8 > /etc/locale.gen && locale-gen
-
 # Allow container to write on host
 RUN usermod -u 1000 www-data
 

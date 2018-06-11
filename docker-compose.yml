@@ -39,7 +39,7 @@ services:
       - MYSQL_DATABASE=testing
 
   nginx:
-    image: nginx:1.13
+    image: nginx:1.15
     ports:
       - '8000:8000'
     volumes:
@@ -54,7 +54,7 @@ services:
       - '6379:6379'
 
   echo-server:
-    image: node:10.1
+    image: node:10.4
     ports:
       - '8888:8888'
     working_dir: /application

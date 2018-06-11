@@ -21,20 +21,15 @@ class ContactController extends Controller
      */
     public function index(Request $request, User $recipient = null): View
     {
-        $messages = null;
-
         if (! isset($recipient->id)) {
             $contactable = User::contactable();
 
             // Auto-select recipient if there's only one, warn if none
             switch ($contactable->count()) {
                 case 0:
-                    $messages = [
-                        'notification' => [
-                            'status' => 'danger',
-                            'message' => __('contact.form.misconfigured')
-                        ]
-                    ];
+                    return redirect()
+                        ->route('contact')
+                        ->withErrors(__('contact.form.misconfigured'));
                 case 1:
                     $recipient = $contactable->first();
                     break;
@@ -45,7 +40,6 @@ class ContactController extends Controller
 
         return view('contact', [
             'recipients' => $recipient,
-            'messages' => $messages,
         ]);
     }
 

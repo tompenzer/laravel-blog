@@ -1,7 +1,31 @@
+var Prism = require('prismjs/components/prism-core');
+var loadLanguages = require('prismjs/components/index.js');
+
+loadLanguages(['css', 'javascript', 'php']);
+
 require('trumbowyg');
+require('trumbowyg/dist/plugins/highlight/trumbowyg.highlight');
+
 
 $('.trumbowyg-form').trumbowyg({
-  svgPath: '/images/icons.svg'
+  svgPath: '/images/icons.svg',
+  removeformatPasted: true,
+  autogrow: true,
+  btns: [
+        ['viewHTML'],
+        ['undo', 'redo'], // Only supported in Blink browsers
+        ['formatting'],
+        ['strong', 'em', 'del'],
+        ['superscript', 'subscript'],
+        ['link'],
+        ['insertImage'],
+        ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+        ['unorderedList', 'orderedList'],
+        ['horizontalRule'],
+        ['removeformat'],
+        ['highlight'],
+        ['fullscreen']
+    ]
 });
 
 // Toggle the side navigation
