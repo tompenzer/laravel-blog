@@ -34,6 +34,7 @@ COPY ./.env.production /application/.env
 WORKDIR /application
 
 # Configure Laravel
-RUN chmod -R 777 storage/
+RUN chmod -R o+w storage bootstrap/cache
 RUN composer install --optimize-autoloader --no-dev
 RUN php artisan key:generate
+RUN php artisan config:cache && php artisan route:cache

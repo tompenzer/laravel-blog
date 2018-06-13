@@ -2,7 +2,12 @@
 
 ## Do the front-end build first
 First, run the front-end production build in your local Docker environment. The
-easiest way to do that is `./startup.sh production`.
+easiest way to do that is `./startup.sh production`. If you already have the dev
+Docker environment running, you can just run the following command from that
+script:
+```
+$ docker run --rm -it -v $(pwd):/app -w /app node yarn run prod
+```
 
 
 ## Create .env.production
@@ -11,10 +16,15 @@ following changes:
 `APP_ENV=local` -> `APP_ENV=production`,
 `APP_DEBUG=true` -> `APP_DEBUG=false`, (unless you want debug info)
 `APP_URL=http://localhost:8000` -> `APP_URL=[insert production URL here]`,
+`APP_TIMEZONE=America/Los_Angeles` -> `APP_URL=[insert production timezone]`,
 `DB_HOST=mysql` -> `DB_HOST=[production DB host endpoint]`,
 `DB_DATABASE=penzone` -> `DB_DATABASE=[production DB name]`,
 `DB_USERNAME=root` -> `DB_USERNAME=[production DB user]`,
 `DB_PASSWORD=secret` -> `DB_PASSWORD=[production DB password]`.
+
+If using s3 for MediaLibrary item storage, also set the following:
+`MEDIALIBRARY_FILESYSTEM_DRIVER=media` -> `MEDIALIBRARY_FILESYSTEM_DRIVER=s3`,
+Fill all the `AWS_`-prefixed variables as appropriate.
 
 
 ## Build images, push to Amazon ECR
@@ -73,3 +83,19 @@ Once you've run the DB migrations, you should be able to log in with the same
 credentials as in the `Usage` section of the main project `readme.md`. Once
 you've logged in, it would be advisable to quickly change the admin account user
 credentials to something more secure.
+
+
+## Deploys not working - what to check first
+If at some point deployments stop working, one of the following might be true:
+1. Something in the docker image build has broken. Address any errors before
+`WARNING! Using --password via the CLI is insecure. Use --password-stdin.`
+appears in the terminal output.
+2. You've got conflicting Docker short image ID hashes, which is bound to happen
+eventually if we make new versions every release for a while. You've got a bunch
+of docker images piling up (one per release) that you're never going to actually
+use, wasting resources. To clean up all not-currently-in-use Docker images, run
+the following command to clean up old images, subsequently entering `y` when
+prompted:
+```
+$ docker system prune -a
+```

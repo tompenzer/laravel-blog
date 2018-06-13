@@ -3,6 +3,7 @@
 .git
 .gitattributes
 .gitignore
+.idea
 .php_cs
 .travis.yml
 Capfile
@@ -20,6 +21,10 @@ phpunit.xml
 readme.md
 startup.sh
 storage/logs/laravel.log
+storage/framework/cache/**
+storage/framework/sessions/**
+storage/framework/views/**
+vendor
 webpack.mix.js
 yarn.lock
 yarn-error.log

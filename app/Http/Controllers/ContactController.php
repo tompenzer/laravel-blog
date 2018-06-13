@@ -19,27 +19,34 @@ class ContactController extends Controller
      *                          contact form submission email. This is accessed
      *                          via the 'contact.user' route.
      */
-    public function index(Request $request, User $recipient = null): View
-    {
+    public function index(Request $request, User $recipient = null) {
+        $messages = [];
+
         if (! isset($recipient->id)) {
             $contactable = User::contactable();
 
             // Auto-select recipient if there's only one, warn if none
             switch ($contactable->count()) {
                 case 0:
-                    return redirect()
-                        ->route('contact')
-                        ->withErrors(__('contact.form.misconfigured'));
+                    $messages['notification'] = [
+                        'status' => 'danger',
+                        'message' => __('contact.form.misconfigured'),
+                    ];
                 case 1:
                     $recipient = $contactable->first();
                     break;
                 default:
                     $recipient = $contactable->pluck('name', 'id');
             }
+        } elseif (! $recipient->isContactable()) {
+            return redirect()
+                ->route('contact')
+                ->withErrors(__('contact.form.invalid_recipient'));
         }
 
         return view('contact', [
             'recipients' => $recipient,
+            'messages' => $messages,
         ]);
     }
 

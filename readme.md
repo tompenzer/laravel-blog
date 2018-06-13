@@ -3,7 +3,11 @@
 The source for the blog [ThePenzone.com](http://thepenzone.com), repo hosted at
 https://github.com/tompenzer/penzone. Largely a fork of
 https://github.com/guillaumebriday/laravel-blog, with the front-end package
-manager changed from NPM to Yarn.
+manager changed from NPM to Yarn, user self-registration disabled, social
+features (comments, liking) disabled, some additions to user profiles, and added
+contact form functionality. There are also some changes made to the Docker
+provisioning to facilitate production deployment to Amazon ECS and other Docker
+hosting providers.
 
 
 ## Installation
@@ -82,17 +86,23 @@ posts). If you would prefer to store media in Amazon s3, you can set the
 An example of building the blog server docker image for this project, with tags
 for a version 1.0.0/latest release:
 ```
-$ cd provisioning
-$ docker build -f Dockerfile -t tompenzer/penzone:1.0.0 -t tompenzer/penzone:latest -t tompenzer/penzone:1 -t tompenzer/penzone:1.0 .
+$ docker build -f provisioning/blog_server/development/Dockerfile -t tompenzer/penzone:1.0.0 -t tompenzer/penzone:latest -t tompenzer/penzone:1 -t tompenzer/penzone:1.0 .
 ```
 
 
 ## Starting the docker environment in production Mode
 
-If you pass the word `production` as an argument to `startup.sh`, it'll build the front-end in production mode:
+If you pass the word `production` as an argument to `startup.sh`, it'll build
+the front-end in production mode and skip DB migrations:
 ```
 $ ./startup.sh production
 ```
+
+
+## Deploying to production
+
+See the readme.md file in the `provisioning` directory for instructions on
+production deployment.
 
 
 ## ReadMe from guillaumebriday/laravel-blog including API documentation follows:

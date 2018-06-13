@@ -18,8 +18,8 @@ Route::resource('users', 'UserController')->only('show');
 
 Route::get('newsletter-subscriptions/unsubscribe', 'NewsletterSubscriptionController@unsubscribe')->name('newsletter-subscriptions.unsubscribe');
 
-Route::get('maskdemo', function() { return view('maskdemo'); })->name('maskdemo');
-Route::get('svg-image', function() { return view('svgimage'); })->name('svgimage');
+Route::get('maskdemo', 'StaticController@maskDemo')->name('maskdemo');
+Route::get('svg-image', 'StaticController@svgImage')->name('svgimage');
 
 Route::get('contact/user/{recipient}', 'ContactController@index')->name('contact.user');
 Route::get('contact', 'ContactController@index')->name('contact');
