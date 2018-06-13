@@ -16,10 +16,9 @@ $sunset-gradient-3: $sunset-orange;
         @for $j from 1 through 19 {
             #{$j * 5}% {
                 fill: nth($cloud-colors, random(length($cloud-colors)));
-                // Since random() converts its input to 0-indexed, random(33) will
-                // output a range from 0-32, from which we subtract 16 to obtain the
-                // desired range of -16px to 16px.
-                transform: translate((random(33) - 16) + px, (random(33) - 16) + px);
+                // Since random(33) will output a range from 1-33, we subtract
+                // 17 to obtain the desired range of -16px to 16px.
+                transform: translate((random(33) - 17) + px, (random(33) - 17) + px);
             }
         }
         100% {
