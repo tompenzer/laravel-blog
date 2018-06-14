@@ -29,4 +29,8 @@ return [
     'delete' => 'Are you sure you want to delete this thumbnail?',
   ],
 
+  'users' => [
+      'delete' => 'Are you sure you want to delete this user?',
+  ],
+
 ];

@@ -18,6 +18,9 @@
                     <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
+                    {!! Form::model($user, ['method' => 'DELETE', 'route' => ['admin.users.destroy', $user], 'class' => 'form-inline']) !!}
+                        {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', ['class' => 'btn btn-danger btn-sm', 'name' => 'submit', 'type' => 'submit', 'data-confirm' => __('forms.users.delete')]) !!}
+                    {!! Form::close() !!}
                 </td>
             </tr>
         @endforeach

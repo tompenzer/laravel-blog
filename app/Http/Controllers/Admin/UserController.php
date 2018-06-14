@@ -35,6 +35,30 @@ class UserController extends Controller
     }
 
     /**
+     * Display the specified resource create form.
+     */
+    public function create(): View
+    {
+        return view('admin.users.create', [
+            'roles' => Role::all(),
+            'media' => MediaLibrary::first()->media()->get()->pluck('name', 'id')
+        ]);
+    }
+
+    /**
+     * Store the specified resource.
+     */
+    public function store(UsersRequest $request): RedirectResponse
+    {
+        $user = User::create(array_filter($request->only(['name', 'email', 'password', 'title', 'blurb', 'media_id'])));
+
+        $role_ids = array_values($request->get('roles', []));
+        $user->roles()->sync($role_ids);
+
+        return redirect()->route('admin.users.edit', $user)->withSuccess(__('users.created', ['user' => $user->name]));
+    }
+
+    /**
      * Update the specified resource in storage.
      */
     public function update(UsersRequest $request, User $user): RedirectResponse
@@ -45,5 +69,17 @@ class UserController extends Controller
         $user->roles()->sync($role_ids);
 
         return redirect()->route('admin.users.edit', $user)->withSuccess(__('users.updated'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(User  $user)
+    {
+        $user_name = $user->name;
+
+        $user->delete();
+
+        return redirect()->route('admin.users.index')->withSuccess(__('users.deleted', ['user' => $user_name]));
     }
 }

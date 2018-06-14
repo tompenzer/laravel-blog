@@ -29,4 +29,8 @@ return [
     'delete' => 'Êtes-vous sûr de vouloir supprimer cette image ?',
   ],
 
+  'users' => [
+    'delete' => 'Êtes-vous sûr de vouloir supprimer cet utilisateur?',
+  ],
+
 ];

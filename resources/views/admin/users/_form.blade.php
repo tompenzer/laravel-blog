@@ -1,5 +1,3 @@
-{{ Form::model($user, ['method' => 'PATCH', 'route' => ['admin.users.update', $user]]) }}
-
   <div class="form-row">
     <div class="form-group col-md-6">
       {{ Form::label('name', __('users.attributes.name')) }}
@@ -46,7 +44,7 @@
     @foreach($roles as $role)
       <div class="checkbox">
         <label>
-          {{ Form::checkbox("roles[$role->id]", $role->id, $user->hasRole($role->name)) }}
+          {{ Form::checkbox("roles[$role->id]", $role->id, (isset($user) ? $user->hasRole($role->name) : false)) }}
           @if (Lang::has('roles.' . $role->name))
             {!! __('roles.' . $role->name) !!}
           @else
@@ -85,6 +83,3 @@
   </div>
 
   {{ link_to_route('admin.users.index', __('forms.actions.back'), [], ['class' => 'btn btn-secondary']) }}
-  {{ Form::submit(__('forms.actions.update'), ['class' => 'btn btn-primary']) }}
-
-{{ Form::close() }}
