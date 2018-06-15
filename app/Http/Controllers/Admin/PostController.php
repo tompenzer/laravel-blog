@@ -14,6 +14,8 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
+    const CACHE_TAG = 'posts';
+
     /**
      * Show the application posts index.
      */
@@ -54,7 +56,7 @@ class PostController extends Controller
     {
         $post = Post::create($request->only(['title', 'content', 'posted_at', 'author_id', 'thumbnail_id']));
 
-        Cache::tags('posts')->flush();
+        Cache::tags(self::CACHE_TAG)->flush();
 
         return redirect()->route('admin.posts.edit', $post)->withSuccess(__('posts.created'));
     }
@@ -66,7 +68,7 @@ class PostController extends Controller
     {
         $post->update($request->only(['title', 'content', 'posted_at', 'author_id', 'thumbnail_id']));
 
-        Cache::tags('posts')->flush();
+        Cache::tags(self::CACHE_TAG)->flush();
 
         return redirect()->route('admin.posts.edit', $post)->withSuccess(__('posts.updated'));
     }
@@ -78,7 +80,7 @@ class PostController extends Controller
     {
         $post->delete();
 
-        Cache::tags('posts')->flush();
+        Cache::tags(self::CACHE_TAG)->flush();
 
         return redirect()->route('admin.posts.index')->withSuccess(__('posts.deleted'));
     }

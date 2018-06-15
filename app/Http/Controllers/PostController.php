@@ -10,6 +10,7 @@ use Illuminate\View\View;
 class PostController extends Controller
 {
     const CACHE_DURATION_POSTS_MIN = 10;
+    const CACHE_TAG = 'posts';
 
     /**
      * Show the application dashboard.
@@ -29,8 +30,8 @@ class PostController extends Controller
 
         $cache_name = "search:{$search}:page:{$page}";
 
-        if (Cache::tags('posts')->has($cache_name)) {
-            $posts = Cache::tags('posts')->get($cache_name);
+        if (Cache::tags(self::CACHE_TAG)->has($cache_name)) {
+            $posts = Cache::tags(self::CACHE_TAG)->get($cache_name);
         } else {
             $posts = Post::search($search)
                              ->with('author')
@@ -38,7 +39,7 @@ class PostController extends Controller
                              ->latest()
                              ->paginate(20);
 
-            Cache::tags('posts')->put($cache_name, $posts, self::CACHE_DURATION_POSTS_MIN);
+            Cache::tags(self::CACHE_TAG)->put($cache_name, $posts, self::CACHE_DURATION_POSTS_MIN);
         }
 
         return view('posts.index', [
