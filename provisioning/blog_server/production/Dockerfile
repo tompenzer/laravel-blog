@@ -23,9 +23,6 @@ RUN docker-php-ext-install gd
 # Installing composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Allow container to write on host
-RUN usermod -u 1000 www-data
-
 # Copy app data and set perms on storage dir
 COPY . /application
 COPY ./.env.production /application/.env
@@ -36,5 +33,4 @@ WORKDIR /application
 # Configure Laravel
 RUN chmod -R o+w storage bootstrap/cache
 RUN composer install --optimize-autoloader --no-dev
-RUN php artisan key:generate
-RUN php artisan config:cache && php artisan route:cache
+RUN php artisan key:generate && php artisan config:cache && php artisan route:cache
