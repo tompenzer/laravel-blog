@@ -31,13 +31,13 @@ return [
   ],
 
   'placeholder' => [
-    'name' => 'Your name',
-    'email' => 'Your email',
-    'current_password' => 'Your current password',
-    'password' => 'Your new password',
+    'name' => 'A name',
+    'email' => 'An email address',
+    'current_password' => 'A current password',
+    'password' => 'A new password',
     'password_confirmation' => 'Password confirmation',
     'profile_pic' => "Choose a profile picture",
-    'title' => "Your title",
-    'blurb' => "Your profile blurb"
+    'title' => "A title",
+    'blurb' => "A profile blurb"
   ]
 ];

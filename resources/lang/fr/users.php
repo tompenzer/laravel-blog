@@ -4,15 +4,15 @@ return [
   'profile' => 'Mon profil',
   'public_profile' => 'Mon profil public',
   'settings' => 'Réglages',
-  'create' => 'Créer un utilisateur',
+  'create' => 'Créer un(e) utilisateur(euse)',
   'edit' => 'Éditer le profil',
   'show' => 'Voir le profil',
-  'created' => 'L\'utilisateur :user a été crée.',
+  'created' => 'L\'utilisateur(euse) :user a été créé(e).',
   'updated' => 'Le profil a bien été mis à jour',
-  'deleted' => 'L\'utilisateur :user a été supprimé(e).',
+  'deleted' => 'L\'utilisateur(euse) :user a été supprimé(e).',
   'password_updated' => 'Le mot de passe a bien été mis à jour',
-  'new_users' => 'nouvel utilisateur|nouveaux utilisateurs',
-  'count' => ':count utilisateur|:count utilisateurs',
+  'new_users' => 'nouvel utilisateur(euse)|nouveaux utilisateurs(euses)',
+  'count' => ':count utilisateur(euse)|:count utilisateurs',
   'api_token' => "Clé d'API",
   'security' => "Sécurité",
 
@@ -31,13 +31,13 @@ return [
   ],
 
   'placeholder' => [
-    'name' => 'Votre nom',
-    'email' => 'Votre email',
-    'current_password' => 'Votre mot de passe actuel',
-    'password' => 'Votre nouveau mot de passe',
+    'name' => 'Un nom',
+    'email' => 'Une adresse email',
+    'current_password' => 'Le mot de passe actuel',
+    'password' => 'Le nouveau mot de passe',
     'password_confirmation' => 'Confirmation du nouveau mot de passe',
     'profile_pic' => "Choisir photo de profile",
-    'title' => "Votre titre",
-    'blurb' => "Votre description de profile"
+    'title' => "Un titre",
+    'blurb' => "Une description de profile"
   ]
 ];
