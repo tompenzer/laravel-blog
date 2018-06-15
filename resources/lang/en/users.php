@@ -33,7 +33,7 @@ return [
   'placeholder' => [
     'name' => 'A name',
     'email' => 'An email address',
-    'current_password' => 'A current password',
+    'current_password' => 'The current password',
     'password' => 'A new password',
     'password_confirmation' => 'Password confirmation',
     'profile_pic' => "Choose a profile picture",

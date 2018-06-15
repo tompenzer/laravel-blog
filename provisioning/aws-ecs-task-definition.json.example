@@ -24,11 +24,13 @@
       "memory": 512,
       "memoryReservation": null,
       "volumesFrom": [],
-      "image": "[blog_server production image repo URI]:[version]",
+      "image": "[blog_server production image repo URI]:latest",
       "disableNetworking": null,
       "healthCheck": null,
       "essential": true,
-      "links": null,
+      "links": [
+        "redis:redis"
+      ],
       "hostname": null,
       "extraHosts": null,
       "user": null,
@@ -60,7 +62,7 @@
       "memory": 256,
       "memoryReservation": null,
       "volumesFrom": [],
-      "image": "[nginx production image repo URI]:[version]",
+      "image": "[nginx production image repo URI]:latest",
       "disableNetworking": null,
       "healthCheck": null,
       "essential": true,
@@ -97,12 +99,7 @@
       "dockerSecurityOptions": null,
       "memory": 256,
       "memoryReservation": null,
-      "volumesFrom": [
-        {
-          "sourceContainer": "blog-server",
-          "readOnly": true
-        }
-      ],
+      "volumesFrom": [],
       "image": "redis:4.0",
       "disableNetworking": null,
       "healthCheck": null,
@@ -123,7 +120,7 @@
   "compatibilities": [
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:[region]:[IP address]:task-definition/[task name]:[revision]",
+  "taskDefinitionArn": "arn:aws:ecs:[region]:[stack ID]:task-definition/[task name]:[revision]",
   "family": "penzone",
   "requiresAttributes": [
     {
@@ -144,7 +141,7 @@
   ],
   "networkMode": "bridge",
   "cpu": "1024",
-  "revision": 28,
+  "revision": [revision],
   "status": "ACTIVE",
   "volumes": []
 }

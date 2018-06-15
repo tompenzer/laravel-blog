@@ -11,7 +11,7 @@ return [
   'updated' => 'Le profil a bien été mis à jour',
   'deleted' => 'L\'utilisateur(euse) :user a été supprimé(e).',
   'password_updated' => 'Le mot de passe a bien été mis à jour',
-  'new_users' => 'nouvel utilisateur(euse)|nouveaux utilisateurs(euses)',
+  'new_users' => 'nouvel(le) utilisateur(euse)|nouveaux utilisateurs',
   'count' => ':count utilisateur(euse)|:count utilisateurs',
   'api_token' => "Clé d'API",
   'security' => "Sécurité",
