@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Cache;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostsRequest;
 use App\Models\MediaLibrary;
@@ -53,6 +54,8 @@ class PostController extends Controller
     {
         $post = Post::create($request->only(['title', 'content', 'posted_at', 'author_id', 'thumbnail_id']));
 
+        Cache::tags('posts')->flush();
+
         return redirect()->route('admin.posts.edit', $post)->withSuccess(__('posts.created'));
     }
 
@@ -63,6 +66,8 @@ class PostController extends Controller
     {
         $post->update($request->only(['title', 'content', 'posted_at', 'author_id', 'thumbnail_id']));
 
+        Cache::tags('posts')->flush();
+
         return redirect()->route('admin.posts.edit', $post)->withSuccess(__('posts.updated'));
     }
 
@@ -72,6 +77,8 @@ class PostController extends Controller
     public function destroy(Post  $post)
     {
         $post->delete();
+
+        Cache::tags('posts')->flush();
 
         return redirect()->route('admin.posts.index')->withSuccess(__('posts.deleted'));
     }

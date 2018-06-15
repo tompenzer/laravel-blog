@@ -27,10 +27,10 @@ class PostController extends Controller
             $search = $request->input('q');
         }
 
-        $cache_name = "posts:search:{$search}:page:{$page}";
+        $cache_name = "search:{$search}:page:{$page}";
 
-        if (Cache::has($cache_name)) {
-            $posts = Cache::get($cache_name);
+        if (Cache::tags('posts')->has($cache_name)) {
+            $posts = Cache::tags('posts')->get($cache_name);
         } else {
             $posts = Post::search($search)
                              ->with('author')
@@ -38,7 +38,7 @@ class PostController extends Controller
                              ->latest()
                              ->paginate(20);
 
-            Cache::put($cache_name, $posts, self::CACHE_DURATION_POSTS_MIN);
+            Cache::tags('posts')->put($cache_name, $posts, self::CACHE_DURATION_POSTS_MIN);
         }
 
         return view('posts.index', [
