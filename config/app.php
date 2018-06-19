@@ -98,9 +98,9 @@ return [
     | Application Supported Locales
     |--------------------------------------------------------------------------
     |
-    | The fallback locale determines the locale to use when the current one
-    | is not available. You may change the value to correspond to any of
-    | the language folders that are provided through your application.
+    | Supported locales list all locales from which a user is able to select.
+    | You may change the value to correspond to all of the language folders that
+    | are provided through your application.
     |
     */
 
