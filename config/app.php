@@ -95,6 +95,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Supported Locales
+    |--------------------------------------------------------------------------
+    |
+    | The fallback locale determines the locale to use when the current one
+    | is not available. You may change the value to correspond to any of
+    | the language folders that are provided through your application.
+    |
+    */
+
+    'locales_supported' => [
+        'en',
+        'fr',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |

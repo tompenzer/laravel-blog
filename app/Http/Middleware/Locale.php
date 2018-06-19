@@ -3,33 +3,18 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Contracts\Session\Session;
+use Config;
 use Illuminate\Http\Request;
 
-class Locale {
+/**
+ * Syncs 'locale' session data to requested language, sets app locale to session
+ * locale.
+ */
+class Locale
+{
+    public function handle(Request $request, Closure $next) {
+        app()->setLocale($request->getPreferredLanguage(Config::get('app.locales_supported')));
 
-  const SESSION_KEY = 'locale';
-  const LOCALES = ['en', 'fr'];
-
-  public function handle(Request $request, Closure $next) {
-    /** @var Session $session */
-    $session = $request->getSession();
-
-    if (! $session->has(self::SESSION_KEY)
-        || $request->getPreferredLanguage(self::LOCALES) !== $session->get(self::SESSION_KEY)
-    ) {
-      $session->put(self::SESSION_KEY, $request->getPreferredLanguage(self::LOCALES));
+        return $next($request);
     }
-
-    if ($request->has('lang')) {
-      $lang = $request->input('lang');
-      if (in_array($lang, self::LOCALES)) {
-        $session->put(self::SESSION_KEY, $lang);
-      }
-    }
-
-    app()->setLocale($session->get(self::SESSION_KEY));
-
-    return $next($request);
-  }
 }
