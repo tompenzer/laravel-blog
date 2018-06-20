@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Rules\AlphaName;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UsersRequest extends FormRequest
@@ -22,7 +23,7 @@ class UsersRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', new AlphaName],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['nullable', 'confirmed'],
             'roles.*' => ['exists:roles,id'],
@@ -30,7 +31,7 @@ class UsersRequest extends FormRequest
         ];
 
         if ($this->method() !== 'POST'
-            && isset($this->route()->user)
+            && isset($this->route()->user->id)
         ) {
             $rules['email'] = ['required', 'email', "unique:users,email,{$this->route()->user->id},id"];
         }
