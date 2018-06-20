@@ -15,7 +15,9 @@ class AddMediaTitleBlurbToUsers extends Migration
             $table->string('title')->nullable();
             $table->text('blurb')->nullable();
             $table->integer('media_id')->unsigned()->nullable();
-            $table->foreign('media_id')->references('id')->on('media')->onDelete('set null');
+            $table->foreign('media_id')
+                ->references('id')->on('media')
+                ->onDelete('set null');
         });
     }
 
@@ -25,10 +27,8 @@ class AddMediaTitleBlurbToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('title');
-            $table->dropColumn('blurb');
             $table->dropForeign(['media_id']);
-            $table->dropColumn('media_id');
+            $table->dropColumn(['blurb', 'media_id', 'title']);
         });
     }
 }

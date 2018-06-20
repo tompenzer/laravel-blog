@@ -22,6 +22,12 @@ mix.js([
 mix.copyDirectory('resources/assets/images', 'public/images')
 mix.copy('node_modules/trumbowyg/dist/ui/icons.svg', 'public/images/icons.svg')
 
-if (mix.inProduction()) {
-    mix.version(['public/images'])
-}
+/*
+ * Doing the versioning for both dev and prod since I can't figure out how to
+ * use the mix() helper method in blade templates with the public/images assets
+ * copied with mix.copyDirectory() in dev when mix.version() isn't run for those
+ * files. They get omitted from the mix-manifest.json file if you don't run
+ * mix.version(), and then mix() blade helper throws an exception for those
+ * files if you have debug mode set to true.
+ */
+mix.version(['public/images'])
