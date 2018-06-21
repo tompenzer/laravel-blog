@@ -19,7 +19,7 @@ class AlphaNamePunc implements Rule
             return false;
         }
 
-        return preg_match('/^(?:[\pL\pN\pM]+.?,?[\pZ\'_-])*[\pL\pN\pM]+.?$/u', $value) > 0;
+        return preg_match('/^(?:[\pL\pN\pM]+\.?,?[\pZ\'_-])*[\pL\pN\pM]+\.?$/u', $value) > 0;
     }
 
     /**
