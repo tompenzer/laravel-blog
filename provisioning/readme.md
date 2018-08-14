@@ -99,3 +99,8 @@ prompted:
 ```
 $ docker system prune -a
 ```
+
+If you run out of storage in a docker container, you can try:
+```
+$ docker volume rm $(docker volume ls -qf dangling=true)
+```

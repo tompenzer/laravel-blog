@@ -31,7 +31,7 @@ class UsersRequest extends FormRequest
         ];
 
         if ($this->method() !== 'POST'
-            && isset($this->route()->user->id)
+            && $this->route()->user
         ) {
             $rules['email'] = ['required', 'email', "unique:users,email,{$this->route()->user->id},id"];
         }

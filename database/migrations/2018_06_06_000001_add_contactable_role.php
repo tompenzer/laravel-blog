@@ -7,7 +7,7 @@ class AddContactableRole extends Migration
     /**
      * Writing this as plain query builder so it'll run despite any changes made
      * to the models. This is a migration, not a seed, since it needs to run in
-     * production, and is a
+     * production, and it makes a structural change to the app's data layer.
      */
     public function up()
     {
