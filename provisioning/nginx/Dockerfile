@@ -1,4 +1,4 @@
-FROM nginx:1.13
+FROM nginx:1.17
 LABEL maintainer="tom@thepenzone.com"
 
 # Copy nginx config file and app public dir to image.
