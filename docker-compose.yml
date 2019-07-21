@@ -21,7 +21,7 @@ services:
       - ./:/application:cached
 
   mysql:
-    image: mysql:5.7
+    image: mysql:5.7.26
     ports:
       - '3306:3306'
     environment:
@@ -31,7 +31,7 @@ services:
       - ./storage/tmp/db:/var/lib/mysql:cached
 
   mysql-test:
-    image: mysql:5.7
+    image: mysql:5.7.26
     ports:
       - '3307:3306'
     environment:
@@ -39,7 +39,7 @@ services:
       - MYSQL_DATABASE=testing
 
   nginx:
-    image: nginx:1.15
+    image: nginx:1.17
     ports:
       - '8000:8000'
     volumes:
@@ -49,12 +49,12 @@ services:
       - blog-server
 
   redis:
-    image: redis:4.0
+    image: redis:5.0
     ports:
       - '6379:6379'
 
   echo-server:
-    image: node:10.4
+    image: node:12.6
     ports:
       - '8888:8888'
     working_dir: /application

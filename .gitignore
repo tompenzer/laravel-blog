@@ -25,3 +25,6 @@ yarn-error.log
 
 # Use yarn.lock
 package-lock.json
+
+# Echo server lockfile
+laravel-echo-server.lock

@@ -22,5 +22,5 @@ Route::get('maskdemo', 'StaticController@maskDemo')->name('maskdemo');
 Route::get('svg-image', 'StaticController@svgImage')->name('svgimage');
 
 Route::get('contact/user/{recipient}', 'ContactController@index')->name('contact.user');
-Route::get('contact', 'ContactController@index')->name('contact');
-Route::post('contact', 'ContactController@send')->name('contact.send');
+Route::get('contact-tom', 'ContactController@index')->name('contact');
+Route::post('contact-tom', 'ContactController@send')->name('contact.send');
